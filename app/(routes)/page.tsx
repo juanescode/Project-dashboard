@@ -1,4 +1,3 @@
-import { UserButton } from "@clerk/nextjs";
 import {CardSummary} from './components/CardSummary'
 import { BookOpenCheck, UserRound, Waypoints } from "lucide-react";
 
@@ -40,6 +39,10 @@ export default function Home() {
            tooltipText={tooltipText}
          />
         ))}
+      </div>
+      <div className='grid grid-cols-1 xl:grid-cols-2 md:gap-x-10 mt-12'>
+        <p>Last customers</p>
+        <p>Sales distributors</p>
       </div>
     </div>
   );

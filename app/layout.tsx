@@ -3,14 +3,16 @@ import { Noto_Sans_Display } from "next/font/google";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css";
+
 
 //Tipografia
 const noto = Noto_Sans_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dashboard Companies | juanescode",
-  description: "Juanescode ",
+  title: "Dashboard Companies | JuaneCcode",
+  description: "JuanesCode ",
 };
 
 export default function RootLayout({
@@ -21,7 +23,15 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
-      <body className={noto.className}>{children}</body>
+      <body className={noto.className}>
+      <ThemeProvider
+            attribute="class"
+            enableSystem
+            disableTransitionOnChange
+          >
+        {children}
+      </ThemeProvider>
+      </body>
     </html>
     </ClerkProvider>
   );
