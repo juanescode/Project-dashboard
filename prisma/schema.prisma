@@ -18,7 +18,7 @@ model Company {
   id           String @id @default(uuid())
   userId       String
   name         String @db.Text
-  description  String @db.Text
+  description  String? @db.Text
   profileImage String @db.Text
   cif          String @db.Text
   phone        String @db.Text
@@ -53,7 +53,6 @@ model Contact {
 
 model Event {
   id String @id @default(uuid())
-
   companyId  String
   title      String
   start      DateTime

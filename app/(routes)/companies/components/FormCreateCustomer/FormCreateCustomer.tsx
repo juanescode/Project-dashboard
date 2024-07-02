@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
+import axios from 'axios'
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select";
 import { UploadButton } from "@/utils/uploadthing";
 import { toast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string(),
@@ -38,6 +39,7 @@ const formSchema = z.object({
 
 export function FormCreateCustomer(props: FormCreateCustomerProps) {
   const { setOpenModalCreate } = props;
+  const router = useRouter();
   const [photoUploaded, setPhotoUploaded] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -55,7 +57,17 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
   const { isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    try {
+      axios.post("/api/company", values)
+      toast({title: "Company created"})
+      router.refresh()
+      setOpenModalCreate(false)
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        variant: "destructive"
+      })
+    }
   };
 
   return (
