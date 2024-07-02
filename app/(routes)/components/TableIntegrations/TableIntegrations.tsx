@@ -35,21 +35,21 @@ import { TableIntegrationsProps } from "./TableIntegrations.types";
 const data: TableIntegrationsProps[] = [
   {
     app: "Stripe",
-    icon: "/images/stripe.png",
+    icon: "/images/logo2.png",
     type: "Finance",
     rate: 60,
     profit: 450,
   },
   {
     app: "Zapier",
-    icon: "/images/zapier.png",
+    icon: "/images/logo3.png",
     type: "CRM",
     rate: 20,
     profit: 123.5,
   },
   {
     app: "Shopify",
-    icon: "/images/shopify.png",
+    icon: "/images/logo1.png",
     type: "Marketplace",
     rate: 80,
     profit: 879.89,
