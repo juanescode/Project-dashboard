@@ -6,6 +6,8 @@ import {
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css";
 
+import { Toaster } from "@/components/ui/toaster"
+
 
 //Tipografia
 const noto = Noto_Sans_Display({ subsets: ["latin"] });
@@ -30,6 +32,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
         {children}
+        <Toaster />
       </ThemeProvider>
       </body>
     </html>
