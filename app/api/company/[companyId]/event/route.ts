@@ -14,7 +14,7 @@ export async function POST(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const company = await db.event.findUnique({
+    const company = await db.company.findUnique({
       where: {
         id: params.companyId,
       },
@@ -32,7 +32,7 @@ export async function POST(
     });
 
     return NextResponse.json(event);
-    
+
   } catch (error) {
     console.log("[EVENT]", error);
     return new NextResponse("Internal Error", { status: 500 });
