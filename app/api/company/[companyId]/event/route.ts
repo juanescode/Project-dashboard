@@ -27,6 +27,7 @@ export async function POST(
     const event = await db.event.create({
       data: {
         companyId: params.companyId,
+        userId: userId,
         ...data,
       },
     });

@@ -53,6 +53,7 @@ model Contact {
 
 model Event {
   id         String   @id @default(uuid())
+  userId     String
   companyId  String
   title      String
   start      DateTime

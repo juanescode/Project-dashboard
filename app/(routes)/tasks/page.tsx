@@ -22,8 +22,8 @@ export default async function Taskspage({params} : {params: {companyId: string}}
 
   const events = await db.event.findMany({
     where: {
-      id: params.companyId,
-      // companyId: "0d689d67-2926-4dd0-bf05-e8d883492cfd"
+      companyId: params.companyId,
+      userId,
     }
   });
 
