@@ -18,6 +18,7 @@ export async function POST(req: Request){
             },
         });
 
+        
         return NextResponse.json(company)
     } catch (error) {
         console.log("[COMPANY", error)

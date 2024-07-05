@@ -9,7 +9,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
-import { DateSelectArg, EventClickArg } from "@fullcalendar/core/index.js";
+import { DateSelectArg, EventContentArg } from "@fullcalendar/core/index.js";
 
 import axios from "axios";
 
@@ -143,21 +143,24 @@ export function Calendar(props: CalendarProps) {
             selectMirror={true}
             select={handleDateClick}
             eventClick={handleEventClick}
+            // longPressDelay={200}
+            // eventLongPressDelay={100}
+            selectLongPressDelay={30}
           />
         </div>
       </div>
       <ModalAddEvent
         open={open}
+        setOpen={setOpen}
+        setOnSaveNewEvent={setOnSaveNewEvent}
         companies={companies}
         setNewEvent={setNewEvent}
-        setOnSaveNewEvent={setOnSaveNewEvent}
-        setOpen={setOpen}
       />
     </div>
   );
 }
 
-function renderEventContent(eventInfo: EventClickArg) {
+function renderEventContent(eventInfo: EventContentArg) {
   return (
     <div className="bg-slate-200 dark:bg-background w-full p-1">
       <i>{eventInfo.event.title}</i>

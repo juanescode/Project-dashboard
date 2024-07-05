@@ -61,9 +61,7 @@ export function FormEvent(props: FormEventProps) {
   }
 
   const handleCompanyChange = (newValue: string) => {
-    const selectedCompany = companies.find(
-      (company) => company.name === newValue
-    );
+    const selectedCompany = companies.find(company => company.name === newValue);
     if (selectedCompany) {
       setSelectedCompany({
         name: selectedCompany.name,
@@ -83,7 +81,7 @@ export function FormEvent(props: FormEventProps) {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Meeting" {...field} />
+                <Input placeholder="Meeting..." {...field} />
               </FormControl>
               <FormDescription>This is your event name.</FormDescription>
               <FormMessage />
@@ -98,8 +96,8 @@ export function FormEvent(props: FormEventProps) {
             <FormItem>
               <FormLabel>Company name</FormLabel>
               <Select onValueChange={(newValue) => {
-                  field.onChange(newValue);
-                  handleCompanyChange(newValue);
+                  field.onChange(newValue)
+                  handleCompanyChange(newValue)
                 }} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>

@@ -1,4 +1,4 @@
-import {BarChart4, Building2, PanelsTopLeft, Settings, ShieldCheck, CircleHelpIcon, Calendar} from 'lucide-react'
+import {BarChart4, Building2, PanelsTopLeft, CircleHelpIcon, Calendar} from 'lucide-react'
 
 export const dataGeneralSidebar = [
     {
@@ -28,18 +28,5 @@ export const datatToolsSidebar = [
         icon: BarChart4,
         label: "Analytics",
         href: "/analytics",
-    }
-]
-
-export const datSupportSidebar = [
-    {
-        icon: Settings,
-        label: "Setting",
-        href: "/setting",
-    },
-    {
-        icon: ShieldCheck,
-        label: "Security",
-        href: "/security",
     }
 ]

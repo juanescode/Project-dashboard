@@ -27,12 +27,11 @@ export async function POST(
     const event = await db.event.create({
       data: {
         companyId: params.companyId,
-        ...data
+        ...data,
       },
     });
 
     return NextResponse.json(event);
-
   } catch (error) {
     console.log("[EVENT]", error);
     return new NextResponse("Internal Error", { status: 500 });

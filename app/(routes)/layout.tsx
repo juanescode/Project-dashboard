@@ -8,9 +8,11 @@ export default function layoutDashboard({
 }) {
   return (
     <div className="flex w-full h-full">
-      <div className="hidden xl:block w-50 h-full xl-fixed">
+      {/* es w-80 */}
+      <div className="hidden xl:block w-50 h-full xl-fixed"> 
         <Sidebar />
       </div>
+      {/* xl:ml-80 */}
       <div className="w-full xl:ml-50">
         <Navbar />
         <div className="p-6 bg-[#fafbfc] dark:bg-secondary">
