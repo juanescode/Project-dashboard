@@ -43,7 +43,7 @@ export async function ListContacts(props: ListContactsProps) {
                     <p>{contact.name}</p>
                     <p>{contact.role}</p>
                     <div className="flex items-center gap-x-6 justify-end">
-                        <a href={`telto: ${contact.phone}`} target="_blank"><Phone className="w-4 h-4"/></a>
+                        <a href={`tel:+57 ${contact.phone}`} target="_blank"><Phone className="w-4 h-4"/></a>
                         <a href={`mailto: ${contact.email}`} target="_blank"><Mail className="w-4 h-4"/></a>
                     </div>
                 </div>
