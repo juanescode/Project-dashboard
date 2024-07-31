@@ -47,10 +47,10 @@ export const columns: ColumnDef<Company>[] = [
         )
     }
   },
-  {
-    accessorKey: "cif",
-    header: "CIF",
-  },
+  // {
+  //   accessorKey: "cif",
+  //   header: "CIF",
+  // },
   {
     accessorKey: "phone",
     header: "Phone",

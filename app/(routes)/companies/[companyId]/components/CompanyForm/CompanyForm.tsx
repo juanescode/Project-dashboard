@@ -46,7 +46,6 @@ export function CompanyForm(props: CompanyFormProps) {
       country: company.country,
       website: company.website,
       phone: company.phone,
-      cif: company.cif,
       profileImage: company.profileImage,
     },
   });
@@ -142,20 +141,6 @@ export function CompanyForm(props: CompanyFormProps) {
                     type="number"
                     {...field}
                   />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="cif"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>CIF / NIF</FormLabel>
-                <FormControl>
-                  <Input placeholder="B-12345678" type="text" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

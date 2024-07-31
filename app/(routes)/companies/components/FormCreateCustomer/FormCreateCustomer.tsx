@@ -33,7 +33,7 @@ const formSchema = z.object({
   country: z.string().min(2),
   website: z.string().min(2),
   phone: z.string().min(6),
-  cif: z.string().min(6),
+  // cif: z.string().min(6),
   profileImage: z.string(),
 });
 
@@ -49,7 +49,7 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
       country: "",
       website: "",
       phone: "",
-      cif: "",
+      // cif: "",
       profileImage: "",
     },
   });
@@ -144,7 +144,7 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
               )}
             />
 
-            <FormField
+            {/* <FormField
               control={form.control}
               name="cif"
               render={({ field }) => (
@@ -156,7 +156,7 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
 
             <FormField
               control={form.control}
