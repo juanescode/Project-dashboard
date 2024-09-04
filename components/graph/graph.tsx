@@ -12,9 +12,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { CompaniesChartProps } from "./CompaniesChart.types";
+type Company = {
+  id: string;
+  name: string;
+  createdAt: string;
+};
 
-// Componente de Tooltip personalizado
+type CompaniesByDateChartProps = {
+  companies: Company[];
+};
+
 const CustomTooltip = ({
   active,
   payload,
@@ -23,7 +30,6 @@ const CustomTooltip = ({
   payload: any[];
 }) => {
   if (active && payload && payload.length) {
-    const events = payload[0].payload.events;
     return (
       <div
         className="custom-tooltip"
@@ -37,17 +43,10 @@ const CustomTooltip = ({
         <p
           className="label"
           style={{ color: "#8884d8", fontWeight: "bold" }}
-        >{`Eventos de ${payload[0].payload.name}`}</p>
-        <ul
-          className="list-disc list-inside"
-          style={{ margin: "0", padding: "0", listStyleType: "none" }}
-        >
-          {events.map((event: any) => (
-            <li key={event.id} style={{ color: "#333", fontWeight: "450" }}>
-              - {" "} {event.title}
-            </li>
-          ))}
-        </ul>
+        >{`Fecha: ${payload[0].payload.date}`}</p>
+        <p style={{ color: "#333", fontWeight: "450" }}>
+          {`Número de empresas: ${payload[0].value}`}
+        </p>
       </div>
     );
   }
@@ -55,29 +54,28 @@ const CustomTooltip = ({
   return null;
 };
 
-export function CompaniesChart(props: CompaniesChartProps) {
-  const { companies, events } = props;
-
-  const dataChart = companies.map((company) => ({
-    name:
-      company.name.length > 10
-        ? company.name.slice(0, 10) + "..."
-        : company.name,
-    eventsByCompany: events.filter((event) => event.companyId === company.id)
-      .length,
-    events: events.filter((event) => event.companyId === company.id),
-  }));
+export function CompaniesByDateChart({ companies }: CompaniesByDateChartProps) {
+  const dataChart = companies.reduce((acc: any, company) => {
+    const date = new Date(company.createdAt).toLocaleDateString();
+    const existingDate = acc.find((item: any) => item.date === date);
+    if (existingDate) {
+      existingDate.count += 1;
+    } else {
+      acc.push({ date, count: 1 });
+    }
+    return acc;
+  }, []);
 
   return (
     <div className="h-[550px]">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart width={500} height={300} data={dataChart}>
           <CartesianGrid strokeDasharray="2 2" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="date" />
           <YAxis />
           <Tooltip content={<CustomTooltip active={true} payload={[]} />} />
           <Legend />
-          <Bar dataKey="eventsByCompany" fill="#8884d8" />
+          <Bar dataKey="count" fill="#8884d8" />
         </BarChart>
       </ResponsiveContainer>
     </div>

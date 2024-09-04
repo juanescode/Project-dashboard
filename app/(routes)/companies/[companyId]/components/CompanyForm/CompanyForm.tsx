@@ -54,12 +54,12 @@ export function CompanyForm(props: CompanyFormProps) {
     try {
         await axios.patch(`/api/company/${company.id}`, values)
         toast({
-            title: "Company updated!"
+            title: "Compañia actualizada!"
         })
         router.refresh()
     } catch (error) {
         toast({
-            title: "something went wrong",
+            title: "Ocurrio un error",
             variant: "destructive"
         })
     }
@@ -74,9 +74,9 @@ export function CompanyForm(props: CompanyFormProps) {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Company name</FormLabel>
+                <FormLabel>Nombre de la compañia</FormLabel>
                 <FormControl>
-                  <Input placeholder="Company name..." type="text" {...field} />
+                  <Input placeholder="Juanes..." type="text" {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -86,14 +86,14 @@ export function CompanyForm(props: CompanyFormProps) {
             name="country"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Country </FormLabel>
+                <FormLabel>Pais </FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select country" />
+                      <SelectValue placeholder="Seleccione el pais" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -116,7 +116,7 @@ export function CompanyForm(props: CompanyFormProps) {
             name="website"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Website</FormLabel>
+                <FormLabel>Sitio web</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="www.juanescode.com"
@@ -134,7 +134,7 @@ export function CompanyForm(props: CompanyFormProps) {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone</FormLabel>
+                <FormLabel>Telefono</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="+57 3204536789"
@@ -152,11 +152,11 @@ export function CompanyForm(props: CompanyFormProps) {
             name="profileImage"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Profile Image</FormLabel>
+                <FormLabel>Imagen de perfil</FormLabel>
                 <FormControl>
                   <div>
                     {photoUploaded ? (
-                      <p className="text-sm">Image uploaded!</p>
+                      <p className="text-sm">Imagen subida exitosamente!</p>
                     ) : (
                       <UploadButton
                         className="bg-slate-600/20 text-slate-800 rounded-lg outline-dotted outline-3"
@@ -193,7 +193,7 @@ export function CompanyForm(props: CompanyFormProps) {
           />
         </div>
         <Button type="submit">
-            Edit company
+            Editar compañia
         </Button>
       </form>
     </Form>

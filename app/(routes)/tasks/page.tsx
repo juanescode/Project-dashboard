@@ -1,10 +1,9 @@
 import { auth } from "@clerk/nextjs";
-
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { Calendar } from "./components/Calendar";
 
-export default async function Taskspage({params} : {params: {companyId: string}}) {
+export default async function Taskspage({ params }: { params: { companyId: string } }) {
   const { userId } = auth();
 
   if (!userId) {
@@ -24,10 +23,12 @@ export default async function Taskspage({params} : {params: {companyId: string}}
     where: {
       companyId: params.companyId,
       userId,
-    }
+    },
+    include: {
+      company: true, // Incluir la relación con la empresa
+    },
   });
 
-  console.log(events);
   return (
     <div>
       <Calendar companies={companies} events={events} />

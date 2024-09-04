@@ -80,9 +80,9 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company name</FormLabel>
+                  <FormLabel>Nombre de la compañia</FormLabel>
                   <FormControl>
-                    <Input placeholder="Company name" type="text" {...field} />
+                    <Input placeholder="Nombre de la compañia" type="text" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -94,11 +94,11 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
               name="country"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Country</FormLabel>
+                  <FormLabel>Pais</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select the country" />
+                        <SelectValue placeholder="Seleccione el pais" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -121,7 +121,7 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
               name="website"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Website</FormLabel>
+                  <FormLabel>Sitio web</FormLabel>
                   <FormControl>
                     <Input placeholder="www.juanescode.com" type="text" {...field} />
                   </FormControl>
@@ -135,7 +135,7 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone</FormLabel>
+                  <FormLabel>Telefono</FormLabel>
                   <FormControl>
                     <Input placeholder="+57 3205623874" type="number" {...field} />
                   </FormControl>
@@ -163,10 +163,10 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
               name="profileImage"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Profile image</FormLabel>
+                  <FormLabel>Imagen de la compañia</FormLabel>
                   <FormControl>
                     {photoUploaded ? (
-                        <p className="text-sm">Image uploaded</p>
+                        <p className="text-sm">Imagen subida exitosamente</p>
                     ): (
                     <UploadButton 
                     className="bg-slate-600/20 text-slate-800 rounded-lg outlone-dotted outline-3"
@@ -192,7 +192,7 @@ export function FormCreateCustomer(props: FormCreateCustomerProps) {
               )}
             />
           </div>
-          <Button type="submit" disabled={!isValid}>Submit</Button>
+          <Button type="submit" disabled={!isValid}>Enviar</Button>
         </form>
       </Form>
     </div>

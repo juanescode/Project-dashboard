@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 export const columns: ColumnDef<Company>[] = [
   {
     accessorKey: "profileImage",
-    header: "Profile Image",
+    header: "Imagen/Logo",
     cell: ({ row }) => {
       const image = row.getValue("profileImage");
 
@@ -41,7 +41,7 @@ export const columns: ColumnDef<Company>[] = [
     accessorKey: "name",
     header: ({column}) => {
         return (
-            <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>Company name
+            <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>Nombre de la compañia
                 <ArrowUpDown className="ml-2 h-4 w-4" />
             </Button>
         )
@@ -53,19 +53,19 @@ export const columns: ColumnDef<Company>[] = [
   // },
   {
     accessorKey: "phone",
-    header: "Phone",
+    header: "Contacto",
   },
   {
     accessorKey: "country",
-    header: "Country",
+    header: "Pais",
   },
   {
     accessorKey: "website",
-    header: "Website",
+    header: "Sitio web",
   },
   {
     id: "actions",
-    header: "Actions",
+    header: "Acciones",
     cell: ({row}) => {
         const {id} = row.original
         return (
@@ -80,7 +80,7 @@ export const columns: ColumnDef<Company>[] = [
                     <Link href={`/companies/${id}`}>	
                         <DropdownMenuItem>
                             <Pencil className="h-4 w-4 mr-2" />
-                            Edit
+                            Editar
                         </DropdownMenuItem>
                     </Link>
                 </DropdownMenuContent>

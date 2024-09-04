@@ -114,6 +114,9 @@ export function Calendar(props: CalendarProps) {
               >
                 <p className="font-bold">{currentEvent.title}</p>
                 <p>{formatDate(currentEvent.start)}</p>
+                {currentEvent.company && (
+                  <p className="text-sm text-gray-500">Empresa: {currentEvent.company.name}</p> 
+                )}
               </div>
             ))}
           </div>
@@ -161,9 +164,11 @@ export function Calendar(props: CalendarProps) {
 }
 
 function renderEventContent(eventInfo: EventContentArg) {
+  const companyName = eventInfo.event.extendedProps.company?.name || "No asignada";
   return (
     <div className="bg-slate-200 dark:bg-background w-full p-1">
       <i>{eventInfo.event.title}</i>
+      <p className="text-sm text-gray-500">Empresa: {companyName}</p>
     </div>
   );
 }

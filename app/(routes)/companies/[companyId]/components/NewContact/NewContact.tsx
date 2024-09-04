@@ -10,13 +10,13 @@ export function NewContact() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>
-            <Button>Add new contact</Button>
+            <Button>Agregar nuevo contacto</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[625px]">
             <DialogHeader>
-                <DialogTitle>Add new contact</DialogTitle>
+                <DialogTitle>Agregar nuevo contacto</DialogTitle>
                 <DialogDescription>
-                    Create your contacts to manage them later.
+                    Complete el formulario para agregar un nuevo contacto
                 </DialogDescription>
             </DialogHeader>
             <FormContact setOpen={setOpen}/>

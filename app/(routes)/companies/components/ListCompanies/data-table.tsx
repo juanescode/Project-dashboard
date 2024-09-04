@@ -68,7 +68,7 @@ export function DataTable<TData, Tvalue>({
     <div className="p-4 bg-background shadow-md rounded-lg mt-4">
       <div className="flex items-center mb-2">
         <Input
-          placeholder="Filter the company..."
+          placeholder="Filtrar por compañia..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
@@ -127,10 +127,10 @@ export function DataTable<TData, Tvalue>({
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
             <Button variant="outline" size="sm" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
-                Previous
+                Anterior
             </Button>
             <Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
-                Next
+                Siguiente
             </Button>
       </div>
     </div>

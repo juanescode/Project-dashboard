@@ -1,18 +1,13 @@
-"use client"
+"use client";
 
 import { Separator } from "@/components/ui/separator";
-
 import { SidebarItem } from "../SidebarItem";
-
-import {
-  dataGeneralSidebar,
-  datatToolsSidebar,
-} from "./SidebarRoutes.data";
+import { dataGeneralSidebar, datatToolsSidebar } from "./SidebarRoutes.data";
 
 export function SidebarRoutes() {
   return (
     <div className="flex flex-col justify-between h-full">
-      <div>
+      <div className="flex-grow">
         <div className="p-2 md:p-6">
           <p className="text-slate-500 mb-2">General</p>
           {dataGeneralSidebar.map((item) => (
@@ -30,14 +25,6 @@ export function SidebarRoutes() {
         </div>
 
         <Separator />
-
-      </div>
-
-      <div className="text-center p-6">
-
-        <footer className="mt-3 p-3 text-center">
-          2024. All rights reserved
-        </footer>
       </div>
     </div>
   );

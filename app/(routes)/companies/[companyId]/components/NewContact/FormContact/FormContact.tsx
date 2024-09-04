@@ -48,12 +48,12 @@ export function FormContact(props: FormContactProps) {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       axios.post(`/api/company/${params.companyId}/contact`, values)
-      toast({title: "Contact created"})
+      toast({title: "Contacto creado"})
       router.refresh()
       setOpen(false)
     } catch (error) {
       toast({
-      title: "There was an error",
+      title: "Ocurrio un error",
       variant: "destructive"
       })
     }
@@ -69,7 +69,7 @@ export function FormContact(props: FormContactProps) {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Nombre</FormLabel>
               <FormControl>
                 <Input placeholder="Juanes" {...field} />
               </FormControl>
@@ -97,7 +97,7 @@ export function FormContact(props: FormContactProps) {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone</FormLabel>
+              <FormLabel>Telefono</FormLabel>
               <FormControl>
                 <Input placeholder="+57 3202356789" {...field} />
               </FormControl>
@@ -111,11 +111,11 @@ export function FormContact(props: FormContactProps) {
           name="role"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Role</FormLabel>
+              <FormLabel>Rol</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select the role"></SelectValue>
+                    <SelectValue placeholder="Seleccione el rol"></SelectValue>
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -131,7 +131,7 @@ export function FormContact(props: FormContactProps) {
           )}
         />
 
-        <Button type="submit">Save contact</Button>
+        <Button type="submit">Guardar contacto</Button>
       </form>
     </Form>
   );

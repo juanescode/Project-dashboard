@@ -41,13 +41,21 @@ export async function DELETE(req: Request, { params }: { params: { companyId: st
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const deletedCompany = await db.company.delete({
-      where: {
-        id: companyId,
-      },
+    await db.$transaction(async (prisma) => {
+      await prisma.event.deleteMany({
+        where: {
+          companyId: companyId,
+        },
+      });
+
+      await prisma.company.delete({
+        where: {
+          id: companyId,
+        },
+      });
     });
 
-    return NextResponse.json(deletedCompany);
+    return new NextResponse("Company and associated events deleted successfully", { status: 200 });
   } catch (error) {
     console.log("[DELETE COMPANY ID]", error);
     return new NextResponse("Internal Error", { status: 500 });

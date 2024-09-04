@@ -8,12 +8,12 @@ export const dataGeneralSidebar = [
     },
     {
         icon: Building2,
-        label: "Companies",
+        label: "Compañias",
         href: "/companies",
     },
     {
         icon: Calendar,
-        label: "Calendar",
+        label: "Calendario",
         href: "/tasks",
     }
 ]
@@ -21,12 +21,12 @@ export const dataGeneralSidebar = [
 export const datatToolsSidebar = [
     {
         icon: CircleHelpIcon,
-        label: "Faqs",
+        label: "Preguntas Frecuentes",
         href: "/faqs",
     },
     {
         icon: BarChart4,
-        label: "Analytics",
+        label: "Analiticas",
         href: "/analytics",
     }
 ]
