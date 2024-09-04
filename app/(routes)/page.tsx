@@ -152,7 +152,7 @@ export default async function Home() {
                 <div className="flex justify-between items-center mt-4">
                   <ContactModal contacts={company.contacts} />
                   <DropdownMenu>
-                    <DropdownMenuTrigger>
+                    <DropdownMenuTrigger asChild>
                       <button className="bg-gray-200 p-2 rounded-full dark:bg-gray-900">
                         <Pencil className="h-4 w-4" />
                       </button>
