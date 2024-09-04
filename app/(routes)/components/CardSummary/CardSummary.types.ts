@@ -6,4 +6,5 @@ export type CardSummaryProps = {
   average: number;
   title: string;
   tooltipText: string;
+  profileImage: string;
 };

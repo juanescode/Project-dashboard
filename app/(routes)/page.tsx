@@ -119,13 +119,13 @@ export default async function Home() {
             <div key={company.id}>
               <div className="shadow-sm bg-background rounded-lg p-5 py-3 hover:shadow-lg transition">
                 <div className="flex items-center gap-4">
-                  {/* <Image
+                  <Image
                     src={company.profileImage}
                     alt={company.name}
                     width={40}
                     height={40}
                     className="rounded-full"
-                  /> */}
+                  />
                   <div>
                     <h3 className="text-xl font-bold">{company.name}</h3>
                   </div>
